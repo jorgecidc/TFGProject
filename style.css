@@ -1,0 +1,74 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Estilos para el encabezado */
+/* Estilos para el encabezado */
+/* Estilos para el encabezado */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 60px 0;
+    position: relative;
+}
+
+.logo {
+    float: left; /* Logo a la izquierda */
+    margin-top: -50px;
+}
+
+nav {
+    float: right; /* Menú a la derecha */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-left: 20px;
+    vertical-align: middle; /* Alinear verticalmente con respecto a la imagen */
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.logoImagen {
+    width: 100px;
+    height: 100px;
+}
+
+
+
+/* Estilos para el área de descripción del club */
+.club-description {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.club-description h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
