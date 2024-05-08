@@ -11,8 +11,6 @@ body {
 }
 
 /* Estilos para el encabezado */
-/* Estilos para el encabezado */
-/* Estilos para el encabezado */
 header {
     background-color: #333;
     color: #fff;
@@ -51,8 +49,6 @@ nav ul li a {
     height: 100px;
 }
 
-
-
 /* Estilos para el área de descripción del club */
 .club-description {
     padding: 50px 0;
@@ -61,11 +57,268 @@ nav ul li a {
 }
 
 .club-description h1 {
+    font-size: 48px; /* Aumento del tamaño de fuente */
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #4CAF50, #2E7D32); /* Degradado verde en el texto */
+    -webkit-background-clip: text; /* Aplicar el degradado al texto */
+    -webkit-text-fill-color: transparent; /* Hacer el texto transparente para ver el degradado */
+}
+
+.club-description h2 {
+    font-size: 36px; /* Aumento del tamaño de fuente */
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #4CAF50, #2E7D32); /* Degradado verde en el texto */
+    -webkit-background-clip: text; /* Aplicar el degradado al texto */
+    -webkit-text-fill-color: transparent; /* Hacer el texto transparente para ver el degradado */
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Estilos para la sección de registro */
+.register-section {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.register-section h1 {
     font-size: 36px;
     margin-bottom: 20px;
 }
 
-/* Estilos para el pie de página */
+.register-section form {
+    margin-bottom: 20px;
+}
+
+.register-section input[type="text"],
+.register-section input[type="email"],
+.register-section input[type="tel"],
+.register-section input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.register-section button {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.register-section button:hover {
+    background-color: #34495e;
+}
+
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 60px 0;
+    position: relative;
+}
+
+.logo {
+    float: left; /* Logo a la izquierda */
+    margin-top: -50px;
+}
+
+nav {
+    float: right; /* Menú a la derecha */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-left: 20px;
+    vertical-align: middle; /* Alinear verticalmente con respecto a la imagen */
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.logoImagen {
+    width: 100px;
+    height: 100px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Estilos para la sección de alquiler de pistas */
+.pista-rental {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.pista-rental h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.pista {
+    background-color: #64B5F6; /* Azul claro para el fondo */
+    width: 400px;
+    height: 200px;
+    position: relative;
+    display: inline-block; /* Agregamos esta propiedad para que las pistas se muestren una al lado de la otra */
+    margin: 50px;
+}
+
+.zona {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    border-top: 2px solid #000; /* Línea divisoria */
+    box-sizing: border-box;
+}
+
+.pista .zona:nth-child(2) {
+    top: 50%; /* Divide en dos zonas horizontales */
+}
+
+
+/* Estilos para la sección de inicio de sesión */
+.login-section {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.login-section h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.login-section form {
+    margin-bottom: 20px;
+}
+
+.login-section input[type="text"],
+.login-section input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.login-section button {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-section button:hover {
+    background-color: #34495e;
+}
+
+.login-section p {
+    font-size: 14px;
+}
+
+.login-section p a {
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.login-section p a:hover {
+    text-decoration: underline;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 60px 0;
+    position: relative;
+}
+
+.logo {
+    float: left; /* Logo a la izquierda */
+    margin-top: -50px;
+}
+
+nav {
+    float: right; /* Menú a la derecha */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-left: 20px;
+    vertical-align: middle; /* Alinear verticalmente con respecto a la imagen */
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.logoImagen {
+    width: 100px;
+    height: 100px;
+}
+
 footer {
     background-color: #333;
     color: #fff;
