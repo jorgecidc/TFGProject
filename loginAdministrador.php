@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Obtener la contraseña encriptada de la base de datos
-    $stmt = $conn->prepare("SELECT id_usuario, nombre, apellido, contrasena FROM Usuario WHERE correo = ?");
+    $stmt = $conn->prepare("SELECT id_administrador, nombre, apellido, contrasena FROM Administrador WHERE correo = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $stmt->store_result();
@@ -17,23 +17,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->fetch();
 
         // Verificar si la contraseña ingresada coincide con la contraseña almacenada en la base de datos
-        if (password_verify($password, $hashed_password)) {
+        if ($password == $hashed_password) {
             // Guardar los datos en la sesión
             $_SESSION['loggedin'] = true;
             $_SESSION['id_usuario'] = $id_usuario;
             $_SESSION['nombre'] = $nombre;
             $_SESSION['apellido'] = $apellido;
+
             // Redirigir al index.php
-            header("Location: index.php");
+            header("Location: indexAdmin.php");
             exit();
         } else {
             // Redirigir al inicio de sesión con mensaje de error
-            header("Location: iniciarSesion.php?error=1");
+            header("Location: loginAdmin.php?error=1");
             exit();
         }
     } else {
         // Redirigir al inicio de sesión con mensaje de error
-        header("Location: iniciarSesion.php?error=1");
+        header("Location: loginAdmin.php?error=1");
         exit();
     }
 

@@ -33,19 +33,18 @@ session_start();
     <main>
         <section class="login-section">
             <div class="container">
-                <h1>Iniciar Sesión</h1>
+                <h1>Administrador</h1>
                 <?php
                 if (isset($_GET['error']) && $_GET['error'] == 1) {
                     echo '<p style="color: red;">Usuario o contraseña incorrectos</p>';
                 }
                 ?>
-                <form action="login.php" method="post">
+                <form action="loginAdministrador.php" method="post">
                     <input type="text" name="username" placeholder="Email" required>
                     <input type="password" name="password" placeholder="Contraseña" required>
                     <button type="submit">Iniciar Sesión</button>
                 </form>
                 <p>¿No tienes cuenta? <a href="registro.php">Registrarse</a></p>
-                <p>¿Eres administrador? <a href="loginAdmin.php">Inicia como administrador</a></p>
             </div>
         </section>
     </main>

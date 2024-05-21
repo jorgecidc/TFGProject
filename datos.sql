@@ -1,5 +1,4 @@
-CREATE DATABASE padelbd;
-USE padelbd;
+USE jorge_cid_db;
 
 CREATE TABLE Usuario (
     id_usuario INT PRIMARY KEY AUTO_INCREMENT,

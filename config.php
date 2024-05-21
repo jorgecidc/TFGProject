@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "padelbd";
+$servername = "db";
+$username = "jorge_cid";
+$password = "AgQXZMCwgTQi";
+$dbname = "jorge_cid_db";
 
 // Crear la conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -11,5 +11,5 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
-
 ?>
+

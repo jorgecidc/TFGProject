@@ -12,7 +12,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 require_once 'config.php';
 
 // Consulta SQL para obtener las reservas de partidos del usuario actual
-$sql = "SELECT Pista.nombre AS pista_nombre, Partido.fecha, Partido.hora_inicio 
+$sql = "SELECT Partido.id_partido , Pista.nombre AS pista_nombre, Partido.fecha, Partido.hora_inicio 
         FROM Partido
         INNER JOIN Pista ON Partido.id_pista = Pista.id_pista
         WHERE Partido.id_usuario = ?";
@@ -40,6 +40,7 @@ if ($result->num_rows > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Reservas - Club de Pádel</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="img/5592019.png">
 </head>
 <body>
     <header>
@@ -50,15 +51,16 @@ if ($result->num_rows > 0) {
                     <li><a href="index.php">Inicio</a></li>
                     <li><a href="alquiler.php">Alquiler de Pista</a></li>
                     <li><a href="#">Alquiler de Clases</a></li>
+                    <li><a href="mis_reservas.php">Mis Reservas</a></li> 
                     <li><a href="#"><?php echo htmlspecialchars($_SESSION['nombre']); ?></a></li>
                     <li><a href="logout.php">Cerrar Sesión</a></li>
-                    <li><a href="mis_reservas.php">Mis Reservas</a></li> <!-- Nuevo enlace -->
+                    
                 </ul>
             </nav>
         </div>
     </header>
     <main>
-        <section class="reservas">
+        <section class="reservas pista-rental">
             <div class="container">
                 <h1>Mis Reservas de Partidos</h1>
                 <div class="table-container">
@@ -66,17 +68,26 @@ if ($result->num_rows > 0) {
                     <table>
                         <thead>
                             <tr>
+                                <th>Id</th>
                                 <th>Pista</th>
                                 <th>Fecha</th>
                                 <th>Hora de Inicio</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($reservas_partidos as $reserva): ?>
                             <tr>
+                                <td><?php echo htmlspecialchars($reserva['id_partido']); ?></td>
                                 <td><?php echo htmlspecialchars($reserva['pista_nombre']); ?></td>
                                 <td><?php echo htmlspecialchars($reserva['fecha']); ?></td>
                                 <td><?php echo htmlspecialchars($reserva['hora_inicio']); ?></td>
+                                <td>
+                                <form method="POST" action="eliminar_reserva.php" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta reserva?')">
+                                        <input type="hidden" name="reserva_id" value="<?php echo htmlspecialchars($reserva['id_partido']); ?>">
+                                        <button type="submit">Eliminar</button>
+                                    </form>
+                                </td>
                             </tr>
                             <?php endforeach; ?>
                         </tbody>
@@ -95,4 +106,5 @@ if ($result->num_rows > 0) {
     </footer>
 </body>
 </html>
+
 

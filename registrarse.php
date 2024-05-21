@@ -1,5 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
 <?php
-require_once 'config.php'; // Asegúrate de tener este archivo configurado correctamente para la conexión a la base de datos
+require_once 'config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nombre = $_POST['firstname'];
@@ -8,16 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
-    // Validar que las contraseñas coincidan
     if ($password != $confirm_password) {
         echo "Las contraseñas no coinciden.";
         exit;
     }
 
-    // Encriptar la contraseña
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // Verificar si el correo electrónico ya está registrado
     $sql = "SELECT * FROM Usuario WHERE correo = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email);
@@ -30,14 +39,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
-    // Insertar el nuevo usuario en la base de datos
     $sql = "INSERT INTO Usuario (nombre, apellido, correo, contrasena) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssss", $nombre, $apellido, $email, $hashed_password);
 
     if ($stmt->execute()) {
-        header("Location: index.php");
-        exit;
+        echo '<div id="overlay">
+                <div id="loading-message">
+                    <div class="spinner"></div>
+                    <p>Registrando...</p>
+                </div>
+              </div>';
+        echo '<script>
+                setTimeout(function() {
+                    document.querySelector("#loading-message p").innerHTML = "Registro completado exitosamente";
+                    document.querySelector(".spinner").style.display = "none";
+                    setTimeout(function() {
+                        window.location.href = "index.php";
+                    }, 2000);
+                }, 3000);
+              </script>';
     } else {
         echo "Error: " . $stmt->error;
     }

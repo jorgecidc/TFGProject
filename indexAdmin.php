@@ -17,11 +17,10 @@ session_start();
             <div class="logo"><img class="logoImagen" src="./img/logo.png" alt="Logo del club"></div>
             <nav>
                 <ul>
-                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="indexAdmin.php">Inicio</a></li>
                     <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                        <li><a href="alquiler.php">Alquiler de Pista</a></li>
-                        <li><a href="#">Alquiler de Clases</a></li>
-                        <li><a href="mis_reservas.php">Mis Reservas</a></li>
+                        <li><a href="listarPistas.php">Listar Pistas</a></li>
+                        <li><a href="gestionUsuarios.php">Administrar Usuarios</a></li>
                         <li><a href="#"><?php echo htmlspecialchars($_SESSION['nombre']); ?></a></li>
                         <li><a href="logout.php">Cerrar Sesión</a></li>
                     <?php else: ?>
